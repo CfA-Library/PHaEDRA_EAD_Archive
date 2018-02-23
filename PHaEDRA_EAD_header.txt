@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink"
     xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd">
     <eadheader countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b"
         repositoryencoding="iso15511" scriptencoding="iso15924">
@@ -16,7 +16,19 @@
     <archdesc level="collection"><did><origination><corpname>Harvard College Observatory.</corpname></origination>
         <unitid>KG11365-6</unitid><unittitle>Harvard College Observatory observations, logs, instrument readings, and calculations</unittitle>
             <unitdate calendar="gregorian" era="ce" normal="1750/1990">1750-1990</unitdate>
-            <physdesc><extent>118 cubic feet</extent><extent>118 boxes</extent></physdesc>
-            <physdesc><extent>2518 volumes</extent></physdesc>
-            <langmaterial><language langcode="eng">English</language></langmaterial></did>
+            <physdesc>
+                <extent>120 cubic feet</extent>
+                <extent>120 boxes</extent>
+            </physdesc>
+            <physdesc>
+                <extent>2531 volumes</extent>
+            </physdesc>
+            <langmaterial>
+                <language langcode="eng">English</language>
+            </langmaterial>
+        </did>
+        <processinfo id="023776ff7dc13462a67eab32f1476f6c">
+            <head>Aleph ID</head>
+            <p>014802615</p>
+        </processinfo>
         <dsc>
