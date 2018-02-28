@@ -43,12 +43,16 @@ for row in result:
     boxnum = str(row[10])
     bibcode = row[13]
 
+    #if the item has been digitized, ingest by ADS, and given a bibcode...
+    #link out to the ADS record from the item's title
     if bibcode != None:
-        ead = "<c level='item'>\n\t<did>\n\t\t<unitid>"+unitid+"</unitid>\n\t\t<unittitle><extref xlink:show='embed' xlink:href='https://ui.adsabs.harvard.edu/#abs/"+bibcode+"/'>"+unittitle.replace('&','&amp;')+"</extref></unittitle>"
+        ead = "<c level='item'>\n\t<did>\n\t\t<unitid>"+unitid+"</unitid>\n\t\t<unittitle><extref xlink:show='new' xlink:href='http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode="+bibcode+"&amp;link_type=ARTICLE'>"+unittitle.replace('&','&amp;')+"</extref></unittitle>"
 
+    #otherwise just include the title in plane text
     else:
         ead = "<c level='item'>\n\t<did>\n\t\t<unitid>"+unitid+"</unitid>\n\t\t<unittitle>"+unittitle.replace('&','&amp;')+"</unittitle>"
 
+    #complicated logic to ascertain the correct format for the date of the item
     if yearstart != None:
         ead += "\n\t\t<unitdate calendar='gregorian' era='ce' normal='"+str(yearstart)
         if monthstart != None:
@@ -103,6 +107,7 @@ for row in result:
                     ead += "-"+str(dayend).zfill(2)
             ead += "</unitdate>"
 
+    #Box numnber for the item
     if boxnum != None:
         ead += "\n\t\t<container type='Box' label='Unspecified'>"+boxnum+"</container>"
 
@@ -117,9 +122,11 @@ for row in result:
         if note[1] == 2:
             ead += "\n\t<odd><head>"+note[0]+":</head><p>"+note[2]+"</p></odd>"
 
+    #if item hsa a KG number...not all do!
     if kgnum != None:
         ead += "\n\t<odd><head>KG Number:</head><p>"+kgnum+"</p></odd>"
 
+    #used to 
     if altid != None:
         ead += "\n\t<odd><head>Sequence volume:</head><p>"+altid+"</p></odd>"
 
@@ -166,6 +173,13 @@ for row in result:
                 ead += i+": "+group[i][0]
                 ead += "\n\t<odd><head>"+i+":"+"</head><p>"+group[i][0]+"</p></odd>"
 
+
+    #link out to the ADS record from the item's title
+    if bibcode != None:
+        ead += "\n\t<odd><head>ADS Record:</head><p><extref xlink:show='new' xlink:href='https://ui.adsabs.harvard.edu/#abs/"+bibcode+"/'>"+bibcode+"</extref></p></odd>"
+
+    #if full text...
+    #<odd><head>Full Text Searchable PDF</head><p><extref xlink:show='new' xlink:href='http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode=1924phae.proj.1092P&amp;link_type=ARTICLE'>phaedra1092 full text</extref></p></odd> 
 
     #physical condition notes
     for note in notes:
