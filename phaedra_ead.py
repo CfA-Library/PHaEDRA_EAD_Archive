@@ -28,6 +28,9 @@ cur = db.cursor()
 cur.execute("SELECT * FROM items")
 result = cur.fetchall()
 
+cur.execute("SELECT item_id FROM `item_events` WHERE event_id = 23")
+transcript_list = cur.fetchall()
+
 for row in result:
 
     unitid = row[0]
@@ -46,7 +49,7 @@ for row in result:
     #if the item has been digitized, ingest by ADS, and given a bibcode...
     #link out to the ADS record from the item's title
     if bibcode != None:
-        ead = "<c level='item'>\n\t<did>\n\t\t<unitid>"+unitid+"</unitid>\n\t\t<unittitle><extref xlink:show='new' xlink:href='http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode="+bibcode+"&amp;link_type=ARTICLE'>"+unittitle.replace('&','&amp;')+"</extref></unittitle>"
+        ead = "<c level='item'>\n\t<did>\n\t\t<unitid>"+unitid+"</unitid>\n\t\t<unittitle><extref xlink:show='new' xlink:href='http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?"+bibcode+"&amp;data_type=PDF_HIGH&amp;whole_paper=YES&amp;type=PRINTER&amp;filetype=.pdf'>"+unittitle.replace('&','&amp;')+"</extref></unittitle>"
 
     #otherwise just include the title in plane text
     else:
@@ -113,7 +116,6 @@ for row in result:
 
     ead += "\n\t</did>"
 
-    
     cur.execute("SELECT nt.note_type_description, n.note_type_id, n.note FROM notes AS n LEFT JOIN note_types AS nt USING (note_type_id) WHERE n.item_id='"+unitid+"'")
     notes = cur.fetchall()
 
@@ -178,8 +180,10 @@ for row in result:
     if bibcode != None:
         ead += "\n\t<odd><head>ADS Record:</head><p><extref xlink:show='new' xlink:href='https://ui.adsabs.harvard.edu/#abs/"+bibcode+"/'>"+bibcode+"</extref></p></odd>"
 
-    #if full text...
-    #<odd><head>Full Text Searchable PDF</head><p><extref xlink:show='new' xlink:href='http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode=1924phae.proj.1092P&amp;link_type=ARTICLE'>phaedra1092 full text</extref></p></odd> 
+    #if full-text... with hyphen!
+    for x in transcript_list:
+        if x[0] == unitid:
+            ead+= "\n\t<odd><head>Full-Text Searchable PDF</head><p><extref xlink:show='new' xlink:href='http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode="+bibcode+"&amp;link_type=ARTICLE'>"+unitid+" full text</extref></p></odd>"
 
     #physical condition notes
     for note in notes:
@@ -201,6 +205,7 @@ for row in result:
     print ead #display EAD line to screen, for troubleshooting
 
     phaedraXML.write(ead)
+
 
 #close the XML file
 phaedraXML.write("\n\n\t\t</dsc>\n\t</archdesc>\n</ead>")
