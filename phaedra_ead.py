@@ -122,7 +122,7 @@ for row in result:
     #date note
     for note in notes:
         if note[1] == 2:
-            ead += "\n\t<odd><head>"+note[0]+":</head><p>"+note[2]+"</p></odd>"
+            ead += "\n\t<odd><head>"+note[0].replace(" (Public)","")+":</head><p>"+note[2]+"</p></odd>"
 
     #if item hsa a KG number...not all do!
     if kgnum != None:
