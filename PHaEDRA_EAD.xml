@@ -15073,7 +15073,7 @@
 	<did>
 		<unitid>phaedra1410</unitid>
 		<unittitle>Circle Readings, Fundamental Stars for Zone</unittitle>
-		<unitdate calendar='gregorian' era='ce' normal='1881-09-01/1881-04-11'>1881-09-01/1881-04-11</unitdate>
+		<unitdate calendar='gregorian' era='ce' normal='1881-04-11/1881-09-01'>1881-04-11/1881-09-01</unitdate>
 		<container type='Box' label='Unspecified'>60</container>
 	</did>
 	<odd><head>KG Number:</head><p>KG11366.406</p></odd>
@@ -16312,7 +16312,7 @@
 	<did>
 		<unitid>phaedra1523</unitid>
 		<unittitle>Fundamental Stars Observations and Reductions</unittitle>
-		<unitdate calendar='gregorian' era='ce' normal='1882-08-21/1881-09-25'>1882-08-21/1881-09-25</unitdate>
+		<unitdate calendar='gregorian' era='ce' normal='1881-08-21/1881-09-25'>1881-08-21/1881-09-25</unitdate>
 		<container type='Box' label='Unspecified'>65</container>
 	</did>
 	<odd><head>KG Number:</head><p>KG11366.519</p></odd>
@@ -16466,7 +16466,7 @@
 	<did>
 		<unitid>phaedra1537</unitid>
 		<unittitle>Zone Chronograph Records</unittitle>
-		<unitdate calendar='gregorian' era='ce' normal='1871-05-25/1871-04-03'>1871-05-25/1871-04-03</unitdate>
+		<unitdate calendar='gregorian' era='ce' normal='1871-05-25/1871-07-03'>1871-05-25/1871-07-03</unitdate>
 		<container type='Box' label='Unspecified'>65</container>
 	</did>
 	<odd><head>KG Number:</head><p>KG11366.533</p></odd>
@@ -16906,7 +16906,7 @@
 	<did>
 		<unitid>phaedra1577</unitid>
 		<unittitle>Zone Observations and Reductions</unittitle>
-		<unitdate calendar='gregorian' era='ce' normal='1871-09-18/187-11-02'>1871-09-18/187-11-02</unitdate>
+		<unitdate calendar='gregorian' era='ce' normal='1871-09-18/1871-11-02'>1871-09-18/1871-11-02</unitdate>
 		<container type='Box' label='Unspecified'>67</container>
 	</did>
 	<odd><head>KG Number:</head><p>KG11366.573</p></odd>
@@ -17006,7 +17006,7 @@
 	<did>
 		<unitid>phaedra1586</unitid>
 		<unittitle>Zone Observations and Reductions</unittitle>
-		<unitdate calendar='gregorian' era='ce' normal='1874-11-18/1874-02-10'>1874-11-18/1874-02-10</unitdate>
+		<unitdate calendar='gregorian' era='ce' normal='1873-11-18/1874-02-10'>1873-11-18/1874-02-10</unitdate>
 		<container type='Box' label='Unspecified'>67</container>
 	</did>
 	<odd><head>KG Number:</head><p>KG11366.582</p></odd>
